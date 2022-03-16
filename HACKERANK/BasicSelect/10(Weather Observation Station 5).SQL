@@ -5,3 +5,28 @@ Query the two cities in STATION with the shortest and longest CITY names, as wel
 The STATION table is described as follows:
 */
 
+SELECT CITY, LEN
+FROM
+(
+ SELECT
+  CITY
+  , LENGTH(CITY) LEN
+ FROM
+  STATION
+ ORDER BY LEN, CITY
+)
+WHERE ROWNUM=1
+;
+
+SELECT CITY, LEN
+FROM
+(
+ SELECT
+  CITY
+  , LENGTH(CITY) LEN
+ FROM
+  STATION
+ ORDER BY LEN DESC, CITY DESC
+)
+WHERE ROWNUM=1
+;
